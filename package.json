@@ -1,0 +1,54 @@
+{
+  "name": "node-lib-template",
+  "version": "1.0.0",
+  "description": "Basic starter for a Node.js library",
+  "type": "module",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/tefkah/node-lib-template.git"
+  },
+  "exports": {
+    ".": {
+      "import": {
+        "types": "./dist/index.d.mts",
+        "default": "./dist/index.mjs"
+      },
+      "require": {
+        "types": "./dist/index.d.cts",
+        "default": "./dist/index.cjs"
+      }
+    }
+  },
+  "files": [
+    "dist",
+    "LICENSE",
+    "README.MD",
+    "CHANGELOG.md",
+    "package.json"
+  ],
+  "scripts": {
+    "test": "vitest run",
+    "bench": "vitest bench",
+    "build": "tsdown",
+    "changeset": "changeset",
+    "version": "changeset version",
+    "release": "pnpm build && changeset publish"
+  },
+  "keywords": [],
+  "author": "Thomas F. K. Jorna",
+  "license": "MIT",
+  "packageManager": "pnpm@10.4.1",
+  "pnpm": {
+    "onlyBuiltDependencies": [
+      "esbuild"
+    ]
+  },
+  "devDependencies": {
+    "@arethetypeswrong/core": "^0.18.2",
+    "@biomejs/biome": "^2.3.8",
+    "@changesets/cli": "^2.29.8",
+    "tsdown": "0.17.0-beta.3",
+    "typescript": "^5.9.3",
+    "vitest": "^4.0.14"
+  }
+}
